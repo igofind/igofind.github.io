@@ -1,4 +1,3 @@
-<!--https://github.com/fletcher/MultiMarkdown/wiki/MultiMarkdown-Syntax-Guide-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,16 +8,94 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="http://igofind.github.io/lib/plugins/bootstrap-3.3.5/css/bootstrap.min.css">
     <!-- Optional theme -->
-    <link rel="stylesheet" href="http://igofind.github.io/lib/plugins/bootstrap-3.3.5/css/bootstrap-theme.min.css">
+    <!--<link rel="stylesheet" href="http://igofind.github.io/lib/plugins/bootstrap-3.3.5/css/bootstrap-theme.min.css">-->
+
+    <!--<link rel="stylesheet" href="http://igofind.github.io/lib/plugins/AdminLTE-2.3.0/css/AdminLTE.min.css">-->
+
+    <!--<link rel="stylesheet" href="http://igofind.github.io/lib/plugins/AdminLTE-2.3.0/css/skins/skin-blue.min.css">-->
+
+    <link rel="stylesheet" href="http://igofind.github.io/lib/plugins/font-awesome-4.6.3/css/font-awesome.min.css">
+
+    <script src="http://igofind.github.io/lib/plugins/jQuery/jquery-1.9.1.min.js"></script>
+
     <!-- Latest compiled and minified JavaScript -->
     <script src="http://igofind.github.io/lib/plugins/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+
+    <!--<script src="http://igofind.github.io/lib/plugins/AdminLTE-2.3.0/js/app.min.js"></script>-->
+
+    <style>
+        .btn {
+            margin: 5px 0 5px 0
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container">
-        <ul>
-            <li><a target="_blank" href="https://github.com/fletcher/MultiMarkdown/wiki/MultiMarkdown-Syntax-Guide">markdown syntax</a></li>
-        </ul>
+<div class="container">
+    <div class="jumbotron">
+        <h2><b>我的常用网址</b></h2>
+        <p><a class="btn btn-success" href="https://github.com/igofind/" role="button">go GitHub</a></p>
     </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+        </div>
+    </div>
+    <script>
+        $(function () {
+            var sites = [
+                ['HTTP'],
+                // http
+                ['HTTP 协议', 'https://www.w3.org/Protocols/'],
+                ['Bootstrap', 'http://v3.bootcss.com/'],
+                ['BootstrapValidator', 'http://bv.doc.javake.cn/validators/uri/'],
+                ['Font Awesome', 'http://fontawesome.io/icons/'],
+                ['AdminLTE', 'https://almsaeedstudio.com/preview'],
+                // chrome
+                ['Chrome'],
+                ['chrome devtools', 'https://developers.google.com/web/tools/chrome-devtools/debug/command-line/expressions?hl=en#inspect-dom-elements-and-javascript-heap-objects'],
+                ['chrome command line api', 'https://developer.chrome.com/devtools/docs/commandline-api'],
+                ['chrome开发者中心', 'https://developer.chrome.com/home'],
+                ['chrome-GitHub', 'https://github.com/GoogleChrome'],
+                ['google产品中心', 'https://developers.google.com/products/?hl=zh-cn'],
+                ['chrome update history', 'https://en.wikipedia.org/wiki/Google_Chrome_release_history'],
+                ['chrome://about', 'chrome://about'],
+                ['FireFox'],
+                ['火狐开发者中心', 'https://developer.mozilla.org/en-US/'],
+                // Java
+                ['Java'],
+                ['Java开发人员(oracle)', 'http://www.oracle.com/technetwork/cn/java/index.html'],
+                ['Java API', 'https://docs.oracle.com/javase/8/'],
+                ['Spring', 'http://docs.spring.io/spring/docs/3.2.14.RELEASE/spring-framework-reference/htmlsingle/'],
+                ['Ext JS whats new',
+                 'http://docs.spring.io/spring/docs/3.2.14.RELEASE/spring-framework-reference/htmlsingle/'],
+                ['Ext JS examples', 'http://dev.sencha.com/ext/5.1.0/examples/index.html'],
+                // 其他
+                ['其他'],
+                ['MarkDown', 'https://github.com/fletcher/MultiMarkdown/wiki/MultiMarkdown-Syntax-Guide']
+            ];
+            var btnStyle = ['default', 'info', 'primary', 'success', 'danger', 'warning', 'link'];
+            var _btn = 'btn-';
+            var indx = 0;
+            var pBody = $('.panel-body');
+            sites.map(function (item, index, arr) {
+                var _indx = Math.floor(Math.random() * btnStyle.length);
+                if (indx == _indx) {
+                    indx = _indx - 1;
+                    if (indx < 0) {
+                        indx = _indx + 1;
+                    }
+                } else {
+                    indx = _indx;
+                }
+                if (item.length == 1) {
+                    pBody.append('<h3 style="text-decoration: underline;">' + item[0] + '</h3>');
+                } else {
+                    pBody.append('<a class="btn ' + (_btn + btnStyle[indx]) + '" role="button" target="_blank" href="' + item[1] + '" >' + item[0] + '</a>&#10');
+                }
+            });
+        });
+    </script>
+</div>
 </body>
+
 </html>
