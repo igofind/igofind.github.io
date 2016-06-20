@@ -27,31 +27,60 @@
         .btn {
             margin: 5px 0 5px 0
         }
+        .thinking {
+            display: none;
+        }
+        
+        .thinking.active {
+            display: block;
+        }
     </style>
 </head>
 
 <body>
-<div class="container">
-    <div class="jumbotron">
-        <h2><b>我的常用网址</b></h2>
-        <p><a class="btn btn-success" href="https://github.com/igofind/" role="button">go GitHub</a></p>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-body">
+    <div class="container">
+        <div class="jumbotron">
+            <h2><b>我的常用网址</b></h2>
+            <p><a class="btn btn-success" href="https://github.com/igofind/" role="button">go GitHub</a></p>
         </div>
-    </div>
-    <script>
+        <div class="panel panel-default site">
+            <div class="panel-body">
+            </div>
+        </div>
+        <div class="panel panel-default thinking">
+            <div class="panel-body">
+                
+                <blockquote>以目地为向导。
+                    <ul>
+                        <li> what：要做什么，目的是什么；</li>
+                        <li> why：有没有必要去做；</li>
+                        <li> how：如何去做、怎么做最好。</li>
+                    </ul>
+                </blockquote>
+                <blockquote class="blockquote-reverse">如果做好了承担后果的准备，那么就去做。</blockquote>
+                <blockquote class="blockquote-reverse">
+                    骗子、小偷、强盗，我。
+                </blockquote>
+                
+                <blockquote>简单明了是一种升华，所谓大道至简(神棍之言)。</blockquote>
+                <blockquote>表象不可靠，本质最重要。</blockquote>
+                <blockquote>来源于生活却高于生活。</blockquote>
+            </div>
+        </div>
+        <script>
         $(function () {
             var sites = [
                 // Web
                 ['HTTP'],
                 ['HTTP 协议', 'https://www.w3.org/Protocols/'],
+
                 // Front End
                 ['Front End'],
                 ['Bootstrap', 'http://v3.bootcss.com/'],
                 ['BootstrapValidator', 'http://bv.doc.javake.cn/validators/uri/'],
                 ['Font Awesome', 'http://fontawesome.io/icons/'],
                 ['AdminLTE', 'https://almsaeedstudio.com/preview'],
+
                 // chrome
                 ['Chrome'],
                 ['chrome devtools', 'https://developers.google.com/web/tools/chrome-devtools/debug/command-line/expressions?hl=en#inspect-dom-elements-and-javascript-heap-objects'],
@@ -63,14 +92,31 @@
                 ['chrome://about', 'chrome://about'],
                 ['FireFox'],
                 ['火狐开发者中心', 'https://developer.mozilla.org/en-US/'],
+
                 // Java
                 ['Java'],
                 ['Java开发人员(oracle)', 'http://www.oracle.com/technetwork/cn/java/index.html'],
                 ['Java API', 'https://docs.oracle.com/javase/8/'],
                 ['Spring', 'http://docs.spring.io/spring/docs/3.2.14.RELEASE/spring-framework-reference/htmlsingle/'],
-                ['Ext JS whats new',
-                 'http://docs.spring.io/spring/docs/3.2.14.RELEASE/spring-framework-reference/htmlsingle/'],
+                ['Ext JS API', 'http://docs.sencha.com/extjs/5.1.1/index.html'],
                 ['Ext JS examples', 'http://dev.sencha.com/ext/5.1.0/examples/index.html'],
+
+                // 工具
+                ['Tools'],
+                ['Grunt', 'http://www.gruntjs.net/'],
+                ['NodeJs', 'https://nodejs.org/en/'],
+                ['NodeJs(中)', 'http://nodejs.cn/'],
+
+                // Soft
+                ['Soft'],
+                ['Listary', 'http://www.listary.com/'],
+                ['Cmder', 'http://www.amilitalia.it/github.com/bliker/cmder.html'],
+                ['Total Commander', 'http://www.ghisler.com/'],
+                ['Beyond Compare', 'http://www.scootersoftware.com/'],
+                ['JetBrains', 'http://www.jetbrains.com/'],
+                ['Http File Server', 'http://www.rejetto.com/hfs/'],
+                ['SecureCRT', 'https://www.vandyke.com/products/securecrt/features.html'],
+
                 // 其他
                 ['其他'],
                 ['Computer Hope', 'http://www.computerhope.com/jargon.htm'],
@@ -80,7 +126,7 @@
             var btnStyle = ['default', 'info', 'primary', 'success', 'danger', 'warning', 'link'];
             var _btn = 'btn-';
             var indx = 0;
-            var pBody = $('.panel-body');
+            var pBody = $('.site > .panel-body');
             sites.map(function (item, index, arr) {
                 var _indx = Math.floor(Math.random() * btnStyle.length);
                 if (indx == _indx) {
@@ -97,9 +143,13 @@
                     pBody.append('<a class="btn ' + (_btn + btnStyle[indx]) + '" role="button" target="_blank" href="' + item[1] + '" >' + item[0] + '</a>&#10');
                 }
             });
+
+            $('body').on('dblclick', function(){
+                $('.thinking').toggleClass('active');
+            })
         });
     </script>
-</div>
+    </div>
 </body>
 
 </html>
