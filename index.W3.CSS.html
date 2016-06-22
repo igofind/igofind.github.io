@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>常用网址(W3.CSS版)</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://igofind.github.io/lib/plugins/W3.CSS/w3.css">
+
+    <script src="http://igofind.github.io/lib/plugins/jQuery/jquery-1.9.1.min.js"></script>
+
+    <style>
+        .w3-btn {
+            margin: 5px 0 5px 0;
+        }
+        
+        .w3-default {
+            background-color: #e6e6e6;
+            color: #000;
+        }
+        
+        .w3-info {
+            background-color: #31b0d5
+        }
+        
+        .w3-primary {
+            background-color: #337ab7
+        }
+        
+        .w3-success {
+            background-color: #5cb85c
+        }
+        
+        .w3-danger {
+            background-color: #d9534f
+        }
+        
+        .w3-warning {
+            background-color: #f0ad4e
+        }
+        
+        .w3-myfont {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+        
+        .w3-content {
+            max-width: 1140px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w3-content w3-myfont ">
+        <!--<div class="w3-content w3-myfont">-->
+        <div class="w3-padding-jumbo w3-margin-bottom w3-light-grey">
+            <h2><b>我的常用网址</b></h2>
+            <p><a class="w3-btn w3-round w3-green" href="https://github.com/igofind/" role="button">go GitHub</a></p>
+        </div>
+        <div class="w3-border w3-round w3-padding-large w3-margin-top site">
+            <div class="panel-body">
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            var sites = [
+                // Web
+                ['HTTP'],
+                ['HTTP 协议', 'https://www.w3.org/Protocols/'],
+
+                // Front End
+                ['Front End'],
+                ['W3.CSS', 'http://www.w3schools.com/w3css/default.asp'],
+                ['Bootstrap', 'http://v3.bootcss.com/'],
+                ['BootstrapValidator', 'http://bv.doc.javake.cn/validators/uri/'],
+                ['Font Awesome', 'http://fontawesome.io/icons/'],
+                ['AdminLTE', 'https://almsaeedstudio.com/preview'],
+
+                // chrome
+                ['Chrome'],
+                ['chrome devtools', 'https://developers.google.com/web/tools/chrome-devtools/debug/command-line/expressions?hl=en#inspect-dom-elements-and-javascript-heap-objects'],
+                ['chrome command line api', 'https://developer.chrome.com/devtools/docs/commandline-api'],
+                ['chrome开发者中心', 'https://developer.chrome.com/home'],
+                ['chrome-GitHub', 'https://github.com/GoogleChrome'],
+                ['google产品中心', 'https://developers.google.com/products/?hl=zh-cn'],
+                ['chrome update history', 'https://en.wikipedia.org/wiki/Google_Chrome_release_history'],
+                ['chrome://about', 'chrome://about'],
+
+                // MOZILLA
+                ['Mozilla'],
+                ['Mozilla MDN', 'https://developer.mozilla.org/zh-CN/'],
+
+                // Java
+                ['Java'],
+                ['Java开发人员(oracle)', 'http://www.oracle.com/technetwork/cn/java/index.html'],
+                ['Java API', 'https://docs.oracle.com/javase/8/'],
+                ['Spring', 'http://docs.spring.io/spring/docs/3.2.14.RELEASE/spring-framework-reference/htmlsingle/'],
+                ['Ext JS API', 'http://docs.sencha.com/extjs/5.1.1/index.html'],
+                ['Ext JS examples', 'http://dev.sencha.com/ext/5.1.0/examples/index.html'],
+
+                // 工具
+                ['Tools'],
+                ['Grunt', 'http://www.gruntjs.net/'],
+                ['NodeJs', 'https://nodejs.org/en/'],
+                ['NodeJs(中)', 'http://nodejs.cn/'],
+
+                // Soft
+                ['Soft'],
+                ['Listary', 'http://www.listary.com/'],
+                ['Cmder', 'http://www.amilitalia.it/github.com/bliker/cmder.html'],
+                ['Total Commander', 'http://www.ghisler.com/'],
+                ['Beyond Compare', 'http://www.scootersoftware.com/'],
+                ['JetBrains', 'http://www.jetbrains.com/'],
+                ['Http File Server', 'http://www.rejetto.com/hfs/'],
+                ['SecureCRT', 'https://www.vandyke.com/products/securecrt/features.html'],
+
+                // 翻
+                ['真·翻'],
+                ['XX-Net', 'https://github.com/XX-net/XX-Net'],
+
+                // 其他
+                ['其他'],
+                ['w3schools(需翻墙)', 'http://www.w3schools.com/'],
+                ['w3c菜鸟教程', 'http://www.runoob.com/'],
+                ['Computer Hope', 'http://www.computerhope.com/jargon.htm'],
+                ['MarkDown', 'https://github.com/fletcher/MultiMarkdown/wiki/MultiMarkdown-Syntax-Guide'],
+                ["O'Reilly 图书", 'http://shop.oreilly.com/category/browse-subjects/programming.do'],
+            ];
+            // var btnStyle = ['white', 'khaki', 'yellow', 'orange', 'red', 'purple', 'blue', 'indigo', 'green', 'teal', 'light-grey'];
+            var btnStyle = ['default', 'info', 'primary', 'success', 'danger', 'warning'];
+            var _btn = 'w3-btn w3-round w3-';
+            var indx = 0;
+            var pBody = $('.site > .panel-body');
+            sites.map(function (item, index, arr) {
+                var _indx = Math.floor(Math.random() * btnStyle.length);
+                if (indx == _indx) {
+                    indx = _indx - 1;
+                    if (indx < 0) {
+                        indx = _indx + 1;
+                    }
+                } else {
+                    indx = _indx;
+                }
+                if (item.length == 1) {
+                    pBody.append('<h3 style="text-decoration: underline;">' + item[0] + '</h3>');
+                } else {
+                    pBody.append('<a class="' + (_btn + btnStyle[indx]) + '" target="_blank" href="' + item[1] + '" >' + item[0] + '</a>&#10');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
