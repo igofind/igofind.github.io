@@ -4,61 +4,69 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>常用网址(W3.CSS版)</title>
+    <title>常用网址</title>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="http://igofind.github.io/lib/plugins/W3.CSS/w3.css">
+    <link rel="stylesheet" href="http://igofind.github.io/lib/plugins/bootstrap-3.3.5/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <!--<link rel="stylesheet" href="http://igofind.github.io/lib/plugins/bootstrap-3.3.5/css/bootstrap-theme.min.css">-->
+
+    <!--<link rel="stylesheet" href="http://igofind.github.io/lib/plugins/AdminLTE-2.3.0/css/AdminLTE.min.css">-->
+
+    <!--<link rel="stylesheet" href="http://igofind.github.io/lib/plugins/AdminLTE-2.3.0/css/skins/skin-blue.min.css">-->
+
+    <link rel="stylesheet" href="http://igofind.github.io/lib/plugins/font-awesome-4.6.3/css/font-awesome.min.css">
 
     <script src="http://igofind.github.io/lib/plugins/jQuery/jquery-1.9.1.min.js"></script>
 
+    <!-- Latest compiled and minified JavaScript -->
+    <!--<script src="http://igofind.github.io/lib/plugins/bootstrap-3.3.5/js/bootstrap.min.js"></script>-->
+
+    <!--<script src="http://igofind.github.io/lib/plugins/AdminLTE-2.3.0/js/app.min.js"></script>-->
+
     <style>
-        .w3-btn {
-            margin: 5px 0 5px 0;
+        .btn {
+            margin: 5px 0 5px 0
         }
         
-        .w3-default {
-            background-color: #e6e6e6;
-            color: #000;
+        .thinking {
+            display: none;
         }
         
-        .w3-info {
-            background-color: #31b0d5
-        }
-        
-        .w3-primary {
-            background-color: #337ab7
-        }
-        
-        .w3-success {
-            background-color: #5cb85c
-        }
-        
-        .w3-danger {
-            background-color: #d9534f
-        }
-        
-        .w3-warning {
-            background-color: #f0ad4e
-        }
-        
-        .w3-myfont {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        }
-        
-        .w3-content {
-            max-width: 1140px;
+        .thinking.active {
+            display: block;
         }
     </style>
 </head>
 
 <body>
-    <div class="w3-content w3-myfont ">
-        <!--<div class="w3-content w3-myfont">-->
-        <div class="w3-padding-jumbo w3-margin-bottom w3-light-grey">
+    <div class="container">
+        <div class="jumbotron">
             <h2><b>我的常用网址</b></h2>
-            <p><a class="w3-btn w3-round w3-green" href="https://github.com/igofind/" role="button">go GitHub</a></p>
+            <p><a class="btn btn-success" href="https://github.com/igofind/" role="button">go GitHub</a></p>
         </div>
-        <div class="w3-border w3-round w3-padding-large w3-margin-top site">
+        <div class="panel panel-default site">
             <div class="panel-body">
+            </div>
+        </div>
+        <div class="panel panel-default thinking">
+            <div class="panel-body">
+
+                <blockquote>以目地为向导。
+                    <ul>
+                        <li> what：要做什么，目的是什么；</li>
+                        <li> why：有没有必要去做；</li>
+                        <li> how：如何去做、怎么做最好。</li>
+                    </ul>
+                </blockquote>
+                <blockquote class="blockquote-reverse">如果做好了承担后果的准备，那么就去做。</blockquote>
+                <blockquote class="blockquote-reverse">
+                    骗子、小偷、强盗，我。
+                </blockquote>
+
+                <blockquote>(方、算、语、词)法：即规则。</blockquote>
+                <blockquote>简单明了是一种升华，所谓大道至简(神棍之言)。</blockquote>
+                <blockquote>表象不可靠，本质最重要。</blockquote>
+                <blockquote>来源于生活却高于生活。</blockquote>
             </div>
         </div>
     </div>
@@ -127,9 +135,8 @@
                 ['MarkDown', 'https://github.com/fletcher/MultiMarkdown/wiki/MultiMarkdown-Syntax-Guide'],
                 ["O'Reilly 图书", 'http://shop.oreilly.com/category/browse-subjects/programming.do'],
             ];
-            // var btnStyle = ['white', 'khaki', 'yellow', 'orange', 'red', 'purple', 'blue', 'indigo', 'green', 'teal', 'light-grey'];
-            var btnStyle = ['default', 'info', 'primary', 'success', 'danger', 'warning'];
-            var _btn = 'w3-btn w3-round w3-';
+            var btnStyle = ['default', 'info', 'primary', 'success', 'danger', 'warning', 'link'];
+            var _btn = 'btn-';
             var indx = 0;
             var pBody = $('.site > .panel-body');
             sites.map(function (item, index, arr) {
@@ -145,9 +152,13 @@
                 if (item.length == 1) {
                     pBody.append('<h3 style="text-decoration: underline;">' + item[0] + '</h3>');
                 } else {
-                    pBody.append('<a class="' + (_btn + btnStyle[indx]) + '" target="_blank" href="' + item[1] + '" >' + item[0] + '</a>&#10');
+                    pBody.append('<a class="btn ' + (_btn + btnStyle[indx]) + '" role="button" target="_blank" href="' + item[1] + '" >' + item[0] + '</a>&#10');
                 }
             });
+
+            $('body').on('dblclick', function(){
+                $('.thinking').toggleClass('active');
+            })
         });
     </script>
 </body>
